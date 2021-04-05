@@ -1,0 +1,483 @@
+/* couleurs: 
+Ivory
+#EBE8E0
+
+Celadon
+#A8BBB0
+
+Black
+#0A0A00
+
+Red
+#D01110;*/
+
+/*image de fond*/
+html
+{
+	height: 100%;
+}
+
+body
+{
+	background-color: #FBF8F7;
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+/*titres, formulaires, box et boutons*/
+#box
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	width: 60%;
+	margin: auto;
+	margin-top: 200px;
+	background-color: #A8BBB0;
+	color: white;
+	font-size: 1em;
+	box-shadow: 10px 10px 10px black;
+	padding: 20px 20px 50px 20px;
+	border-radius: 20px;
+}
+
+h1, h2
+{
+	font-size: 2em;
+	text-align: center;
+	color: #D01110;
+}
+
+h3
+{
+	font-size: 1.5em;
+}
+
+h4
+{
+	color: #D01110;
+	font-weight: bolder;
+	font-size: 1.2em;
+	border-bottom: solid 1px #D01110;
+}
+
+.bouton
+{
+	background-color: #D01110;
+	border-radius: 10px;
+	padding: 6px;
+	font-size: 0.8em;
+	color: white;
+}
+
+.bouton:hover
+{
+	background-color: #0A0A00;
+}
+
+.formulaire
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.error_msg
+{
+	color: #D01110;
+}
+
+/*header*/
+#header
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	padding-top: 15px;
+	min-width: 100%;
+	border-bottom: #D01110 double 10px;
+	background-color: #EBE8E0;
+	overflow: hidden;
+	position: fixed; 
+  	top: 0;
+  	width: 100%;
+}
+
+.logo
+{
+	box-shadow: 5px 5px 10px black;
+	border-radius: 80px;
+}
+
+.nom_prenom
+{
+	font-weight: bold;
+	font-size: 1em;
+	text-align: center;
+	margin: 10px;
+	display: flex;
+	flex-direction: row;
+}
+
+.header_membre
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+/*Menu*/
+.amenu
+{
+	color: black;
+	font-size: 1.5em;
+	margin-left: 25px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+}
+
+.amenu:hover
+{
+	color: #D01110;
+	text-decoration: overline;
+}
+
+/*footer*/
+footer
+{
+	text-align: center;
+	background-color: #D01110;
+	padding: 15px;
+}
+
+.afooter
+{
+	color: white;
+	font-size: 0.8em;
+	font-weight: normal;
+}
+.afooter:hover
+{
+	color: #A8BBB0;
+}
+
+/*Connexion*/
+.header
+{
+	display: flex;
+	justify-content: flex-start;
+	border-bottom: #D01110 double 10px;
+	padding-top: 15px;
+	padding-left: 15px;
+	background-color: #EBE8E0;
+	overflow: hidden;
+	position: fixed; 
+  	top: 0; 
+  	width: 100%;
+}
+
+.logo
+{
+	border-radius: 80px;
+	margin-bottom: 14px;
+	box-shadow: 5px 5px 10px black;
+}
+
+.cliquez
+{
+	color: white;
+}
+.cliquez:hover
+{
+	color: #D01110;
+	text-decoration: overline;
+}
+
+/*Accueil*/
+#presentation, #liste_partenaires
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+
+	margin: auto;
+	padding: 40px;
+	width: auto;
+}
+
+.texte_presentation
+{
+	font-size: 1em;
+	color: #0A0A00;
+	width: 70%;
+	margin: auto;
+	margin-top: 100px;
+	text-align: left;
+	padding: 20px;
+}
+
+.texte_presentation_acteur
+{
+	font-size: 1em;
+	color: #0A0A00;
+	width: 70%;
+	margin: auto;
+	text-align: left;
+	padding: 20px;
+}
+
+.partenaires
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 70%;
+	background-color: #A8BBB0;
+	border-radius: 40px;
+	padding: 15px;
+}
+
+.logo_partner
+{
+	border-radius: 20px;
+}
+
+.texte_acteur
+{
+	width: 90%;
+	margin: auto;
+	padding: 20px;
+	font-size: 1em;
+	text-align: justify;
+	min-width: 30%;
+}
+
+/*Inscription*/
+
+/*Mot de passe oublié*/
+
+/*Partenaires*/
+
+#partner
+{
+	margin-top: 150px;
+}
+
+.box_commentaires
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;
+	width: 70%;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #A8BBB0;
+	padding: 15px;
+	border-radius: 40px;
+}
+
+.com
+{
+	width: 90%;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.commentaire
+{
+	width: 90%;
+	margin: auto;
+	border-bottom: solid black 1px;
+
+}
+
+.lire_suite
+{
+	background-color: #D01110;
+	border-radius: 10px;
+	border: black solid 2px;
+	color: white;
+	padding: 6px;
+	text-decoration: none;
+	font-size: 0.8em;
+}
+
+.lire_suite:hover
+{
+	background-color: black;
+	border: grey solid 2px;
+}
+
+.btn_like
+{
+
+}
+
+.dis_like
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+.likes
+{
+	font-weight: bolder;
+	font-size: 1.5em;
+	color: #D01110;
+}
+
+.dislikes
+{
+	font-weight: bolder;
+	font-size: 1.5em;
+	color: black;
+}
+/*Mentions légales*/
+
+/*Contact*/
+
+#contact
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 100px;
+}
+
+.info
+{
+	background-color: #A8BBB0;
+	margin: 30px 30px 80px 20px;
+	padding: 30px;
+	border-radius: 40px;
+}
+
+@media screen and (max-width: 770px) /*tablette*/
+{
+	/*header utilisateur connecté*/
+	#nav
+	{
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	padding: 20px;
+	}
+
+	.amenu
+	{
+		margin-left: 15px;
+		font-size: 1em;
+	}
+
+	/*accueil utilisateur non connecté*/
+	#connexion
+	{
+		font-size: 1.2em;
+	}
+
+}
+
+@media screen and (max-width: 375px)
+{
+
+/*connexion*/
+	.header
+	{
+		flex-wrap: wrap;
+		flex-direction: column;
+		align-content: center;
+		border-bottom: #D01110 solid 5px;
+		margin: auto;
+	}
+
+	#box
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		width: 80%;
+		margin: auto;
+		margin-top: 200px;
+	}
+
+	.password_f
+	{
+		display: flex;
+		flex-direction: column;
+		margin: auto;
+	}
+
+	.formulaire
+
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		margin: auto;
+	}
+	#nav
+	{
+		display: none;
+	}
+
+	#presentation
+	{
+		margin-top: 10px;
+		padding-top: 0;
+	}
+
+	h1, h2
+	{
+		font-size: 1.5em;
+	}
+
+	.texte_presentation
+	{
+		font-size: 1.2em;
+
+	}
+
+	.texte_partenaires
+	{
+		font-size: 1.2em;;
+	}
+
+	#liste_partenaires
+	{
+		padding: 5px;
+		align-items: center;
+	}
+
+	.partenaires
+	{
+		flex-direction: column;
+		margin: 5px;
+		width: 70%
+	}
+
+	.logo_partner
+	{
+		width: 90%;
+	}
+
+	.text_partner
+	{
+		text-align: center;
+	}
+}
