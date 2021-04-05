@@ -1,60 +1,128 @@
+<?php
+
+require 'model/database.php';
+
+if (isset($_POST['submit']) AND isset($_POST['nom']) AND isset($_POST['prenom']) AND isset($_POST['pseudo']) AND isset($_POST['email']) AND isset($_POST['password']) AND isset($_POST['question']) AND isset($_POST['reponse']))
+{
+    $nom=$_POST['nom'];
+    $prenom=$_POST['prenom'];
+    $pseudo=$_POST['pseudo']; 
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $question=$_POST['question'];
+    $reponse=$_POST['reponse'];
+    $pass_hache = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+
+    $req = $bdd->prepare('INSERT INTO membres(nom, prenom, pseudo, password, email, question, reponse, date_inscription) VALUES (:nom, :prenom, :pseudo, :pass_hache, :email, :question, :reponse, CURDATE())');
+    $req->execute(array(
+    'nom'=>$nom,
+    'prenom'=>$prenom,
+    'pseudo'=>$pseudo,
+    'pass_hache'=>$pass_hache,
+    'email'=>$email,
+    'question'=>$question,
+    'reponse'=>$reponse
+    ));
+}
+
+session_start();
+if(isset($_POST['pseudo']))
+{
+    $_SESSION['pseudo']=$_POST['pseudo'];
+    header('Location:Accueil.php');
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="00_style.css" type="text/css" />
-        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="Style.css" type="text/css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>GBAF: Groupement Banque-Assurance Français</title>
     </head>
 
- 	 <div class="header">
-    	 <img class="logo" src="Visuels/logo_fond blanc.png" alt="Logo GBAF: Groupement Banque Assurance Français" title="Logo GBAF" />
-    </div>
-
     <body>
 
+    <div class="header">
+         <a href="connexion.php"><img class="logo" src="Visuels/logo_fond blanc2.png" alt="Logo GBAF: Groupement Banque Assurance Français" title="Logo GBAF" /></a>
+    </div>
+     
+        <div id="box">
 
+            <h1>INSCRIPTION</h1>
 
-    	<div id="formulaire_inscription">
+            <form method="POST" action="#">
 
-    		<h1>Mon inscription</h1>
+                <div class="formulaire">
+                    <label for="nom">Nom</label>
+                    <div>
+                    <input type="text" size="43" id="nom" name="nom">
+                    </div>
+                </div>
 
-    		<form method="post" action="03_configaccount.php">
+                <div class="formulaire">
+                    <label for="prenom">Prénom</label>
+                    <div>
+                    <input type="text" size="43" id="prenom" name="prenom">
+                    </div>
+                </div>
 
-    			<p><label for=username>Identifiant:</label></p>
-    				<p><input type="text" name="username" id="username" size="43px" /></p>
+                <div class="formulaire">
+                    <label for="pseudo">Identifiant</label>
+                    <div>
+                    <input type="text" size="43" id="pseudo" name="pseudo">
+                    </div>
+                </div>
 
-    				<p><label for=prenom>Adresse mail:</label></p>
-    				<p><input type="email" name="email" id="email" size="43px" /></p>
-    		
-    			<p><label for="mdp">Mot de passe: </label></p>
-                	<p><input type="password" name="password" id="mdp" size="43px" /></p>
+                <div class="formulaire">
+                    <label for="email">Email</label>
+                    <div>
+                    <input type="text" size="43" id="email" name="email">
+                    </div>
+                </div>
 
-                	<p><label for="mdp">Retapez votre mot de passe: </label></p>
-                	<p><input type="password" name="password" id="mdp" size="43px" /></p>
+                <div class="formulaire">
+                    <label for="inputPassword">Mot de Passe</label>
+                    <div>
+                    <input type="password" size="43" id="inputPassword" name="password">
+                    </div>
+                </div> 
 
-                <p><label for="secretquestion">Question secrète:</label></p>
-                	<p><select name="secretquestion" id="secretquestion">
-                		<option value="animal">Le nom de votre premier animal de compagnie</option>
-                		<option value="nomJF">Le nom de jeune fille de votre grand-mère maternelle</option>
-                		<option value="personnage">Votre personnage historique préféré</option>
-                		<option value="amour">Le nom et le prénom de votre premier amour</option>
-                	</select>
-                </p>
-                
-                <p><label for=reponse>Réponse:</label></p>
-    				<p><input type="text" name="reponse" id="reponse" size="43px" /></p>
-               
-                <p><input class="bouton_connection" type="submit" value="CONNEXION" /></p>
+                <div class="formulaire">
+                    <label for="question">Question secrète</label>
+                    <div>
+                    <select name="question" id="secret_question">
+                        <option value="animal">Le nom de votre premier animal de compagnie</option>
+                        <option value="nomJF">Le nom de jeune fille de votre grand-mère maternelle</option>
+                        <option value="personnage">Votre personnage historique préféré</option>
+                        <option value="amour">Le nom et le prénom de votre premier amour</option>
+                    </select>
+                    </div>
+                </div> 
 
-    		</form>
-    	</div>
+                <div class="formulaire">
+                    <label for="reponse">Réponse</label>
+                    <div>
+                    <input type="text" size="43" id="reponse" name="reponse">
+                    </div>
+                </div> 
+
+                <div>
+                    <p><input type="submit" name="submit" value="S'INSCRIRE" class="bouton"></p>
+                </div>
+            </form>
+        </div>
+
+    <footer>
+        <?php include("_footer.php"); ?> 
+    </footer>
+
     </body>
-
-   <footer>
-		<?php include("_footer.php"); ?> 
-	</footer>
 
 </html><!-- 
 Nom ;
